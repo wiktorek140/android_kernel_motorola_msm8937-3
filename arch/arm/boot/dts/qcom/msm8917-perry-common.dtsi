@@ -14,6 +14,21 @@
 #include "dsi-panel-mot-tianma-499-720p-video.dtsi"
 #include "dsi-panel-mot-ofilm-499-720p-video.dtsi"
 
+&firmware {
+	android {
+		fstab {
+			vendor {
+				compatible = "android,vendor";
+				dev = "/dev/block/platform/soc/7824900.sdhci/by-name/oem";
+				type = "ext4";
+				mnt_flags = "ro,barrier=1,discard";
+				fsmgr_flags = "wait,verify";
+				status = "ok";
+			};
+		};
+	};
+};
+
 &soc {
 	vdda_touch_vreg: vdda_touch_vreg {
 		compatible = "regulator-fixed";
